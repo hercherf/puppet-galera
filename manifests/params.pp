@@ -8,7 +8,7 @@ class galera::params {
   if $galera::vendor_type == 'percona' {
     $bootstrap_command = '/etc/init.d/mysql bootstrap-pxc'
   } elsif ($galera::vendor_type == 'mariadb' or $galera::vendor_type == 'codership') {
-    $bootstrap_command = 'service mysql start --wsrep_cluster_address=gcomm://'
+    $bootstrap_command = 'service mysql bootstrap'
   } elsif $galera::vendor_type == 'osp5' {
     # mysqld log part is a workaround for a packaging bug
     # to be removed when packages are fixed
