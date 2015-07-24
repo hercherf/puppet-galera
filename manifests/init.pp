@@ -108,6 +108,7 @@ class galera(
   $local_ip                         = $::ipaddress_eth1,
   $bind_address                     = $::ipaddress_eth1,
   $mysql_port                       = 3306,
+  $wsrep_cluster_name               = 'galera_cluster',
   $wsrep_group_comm_port            = 4567,
   $wsrep_state_transfer_port        = 4444,
   $wsrep_inc_state_transfer_port    = 4568,

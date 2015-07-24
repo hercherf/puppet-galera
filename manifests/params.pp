@@ -118,6 +118,7 @@ class galera::params {
         'wsrep_node_address'                => $galera::local_ip,
         'wsrep_provider'                    => $galera::params::libgalera_location,
         'wsrep_cluster_address'             => "gcomm://${server_csl}",
+        'wsrep_cluster_name'                => $galera::wsrep_cluster_name,
         'wsrep_slave_threads'               => '8',
         'wsrep_sst_method'                  => $galera::wsrep_sst_method,
         'wsrep_sst_auth'                    => "\"${wsrep_sst_auth}\"",
