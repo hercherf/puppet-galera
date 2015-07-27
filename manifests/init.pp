@@ -105,6 +105,7 @@
 class galera(
   $galera_servers                   = [$::ipaddress_eth1],
   $galera_master                    = $::fqdn,
+  $galera_clients                   = [],
   $local_ip                         = $::ipaddress_eth1,
   $bind_address                     = $::ipaddress_eth1,
   $mysql_port                       = 3306,
@@ -135,7 +136,9 @@ class galera(
   }
 
   if $configure_firewall {
-    include galera::firewall
+    class { 'galera::firewall':
+      source => unique(flatten([$galera_servers, $galera_clients]))
+    }
   }
 
   # Debian machines need some help
