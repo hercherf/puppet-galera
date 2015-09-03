@@ -20,6 +20,13 @@ class galera::firewall (
         action => accept,
         source => $ip,
       }
+      firewall { "4567 galera accept udp from ${ip}":
+        before => Anchor['mysql::server::start'],
+        proto  => 'udp',
+        port   =>  $galera::wsrep_group_comm_port,
+        action => accept,
+        source => $ip,
+      }
     }
   }
   else {
@@ -29,6 +36,13 @@ class galera::firewall (
       port   => $galera_ports,
       action => accept,
       source => $source,
+    }
+    firewall { "4567 galera accept udp from ${ip}":
+      before => Anchor['mysql::server::start'],
+      proto  => 'udp',
+      port   =>  $galera::wsrep_group_comm_port,
+      action => accept,
+      source => $ip,
     }
   }
 }
