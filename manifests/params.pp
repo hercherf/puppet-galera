@@ -78,9 +78,9 @@ class galera::params {
       $libgalera_location = '/usr/lib/galera/libgalera_smm.so'
     }
     elsif $galera::vendor_type == 'codership' {
-      $mysql_package_name_internal = 'mysql-wsrep-5.5'
+      $mysql_package_name_internal = 'mysql-wsrep-5.6'
       $galera_package_name_internal = 'galera-3'
-      $client_package_name_internal = 'mysql-wsrep-client-5.5'
+      $client_package_name_internal = 'mysql-wsrep-client-5.6'
       $additional_packages = 'rsync'
       $libgalera_location = '/usr/lib/galera/libgalera_smm.so'
     }
